@@ -713,7 +713,7 @@ public class ZonDecoder {
                     case 'r': result.append('\r'); break;
                     case 't': result.append('\t'); break;
                     case 'u':
-                        if (i + 4 < content.length()) {
+                        if (i + 4 <= content.length()) {
                             String hex = content.substring(i + 1, i + 5);
                             result.append((char) Integer.parseInt(hex, 16));
                             i += 4;

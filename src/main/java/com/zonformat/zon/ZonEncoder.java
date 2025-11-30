@@ -409,13 +409,9 @@ public class ZonEncoder {
             // Avoid scientific notation
             if (s.contains("E") || s.contains("e")) {
                 // Convert to fixed-point
-                if (Math.abs(d) >= 1) {
-                    s = String.format("%.15f", d).replaceAll("0+$", "").replaceAll("\\.$", ".0");
-                } else {
-                    s = String.format("%.15f", d).replaceAll("0+$", "");
-                }
+                s = String.format("%.15f", d).replaceAll("0+$", "").replaceAll("\\.$", ".0");
             }
-            // Ensure decimal point for floats
+            // Ensure decimal point for floats (this only runs for true floats, as integers return earlier)
             if (!s.contains(".")) {
                 s += ".0";
             }
